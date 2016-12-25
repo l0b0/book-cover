@@ -4,8 +4,6 @@
 Test conversion of ISO 216 A series paper sizes to ISO 269 C series
 """
 
-from math import sqrt
-
 __copyright__ = 'Copyright (C) 2011 Victor Engmark'
 __license__ = 'GPLv3'
 
@@ -35,8 +33,10 @@ C_SERIES = [
     [40, 57],
     [28, 40]]
 
+
 def a_to_c(dimension):
     return dimension * pow(2, 1.0 / 8)
+
 
 def main():
     for a_values, c_values in zip(A_SERIES, C_SERIES):
@@ -45,6 +45,7 @@ def main():
             int(round(a_to_c(a_values[1])))]
         if a_to_c_values != c_values:
             print str([a_to_c(a_values[0]), a_to_c(a_values[1])]) + ' != ' + str(c_values)
+
 
 if __name__ == '__main__':
     main()
